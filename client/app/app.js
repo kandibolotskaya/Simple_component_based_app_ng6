@@ -1,12 +1,17 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import ngMessages from 'angular-messages';
+import ngMaterial from 'angular-material';
+
 import Common from './common/common';
-import Components from './components/components';
+import Components from './components/compon ents';
 import AppComponent from './app.component';
 import 'normalize.css';
 
 angular.module('app', [
     uiRouter,
+    ngMaterial,
+    ngMessages,
     Common,
     Components
   ])
