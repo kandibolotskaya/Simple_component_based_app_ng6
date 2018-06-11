@@ -7,7 +7,7 @@ class EntitiesListController {
   }
 
   $init() {
-    this.entitiesService.getDisconnected()
+    this.entitiesService.getConnected()
       .then(data => this.entities = data)
       .catch(error => console.error(error));
   }

@@ -2,6 +2,14 @@
   box-sizing: border-box;
 }
 
+body {
+  background: #c0c0c0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;  
+}
+
 .main-wrap {
   /* old way */
   display: table-cell;
@@ -14,4 +22,28 @@
   // display: flex;
   // align-items: center;
   // justify-content: center;
+}
+
+
+.app-wrap {
+  display: inline-block;
+  width: 320px;
+  text-align: left;
+  height: auto;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.4);
+  background: #fff;
+  padding: 12px 24px;
+}
+
+.dialog-wrap {
+  display: inline-block;
+  width: 640px;
+  text-align: left;
+  height: auto;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.4);
+  background: #fff;
+}
+
+.text-center {
+  text-align: center;
 }

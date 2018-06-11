@@ -1,9 +1,8 @@
 <md-list class="md-dense" flex ng-if="$ctrl.entities" ng-cloak>
   <md-list-item class="md-3-line" ng-repeat="record in $ctrl.entities track by record.id">
     <div class="md-list-item-text" layout="column">
-      <h3>{{ record.entity }}</h3>
+      <h3 class="entity-name">{{ record.entity }}</h3>
       <h4>{{ record.event }}</h4>
     </div>
   </md-list-item>
-  <md-divider></md-divider>
 </md-list>

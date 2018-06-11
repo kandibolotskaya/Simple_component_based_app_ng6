@@ -1,5 +1,5 @@
-import EntitiesModule from './entities';
-import EntitiesController from './entities.controller';
+import EntitiesModule from './entitiesConnect';
+import EntitiesController from './entitiesConnect.controller';
 import EntitiesComponent from './entities.component';
 import EntitiesTemplate from './entities.html';
 

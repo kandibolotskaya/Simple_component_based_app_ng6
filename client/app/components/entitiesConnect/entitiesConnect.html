@@ -1,0 +1,62 @@
+<div class="dialog-wrap">
+  <div class="dialog">
+
+    <md-input-container>
+      <md-icon>search</md-icon>
+      <label>Search entity</label>
+      <input class="custom-input"
+          ng-model="$ctrl.query"
+          ng-keyup="$ctrl.applySearch($event)">
+      <md-tooltip md-direction="top">
+        Search by name
+      </md-tooltip>
+    </md-input-container>
+
+    <span class="sort">
+      <md-icon ng-click="$ctrl.sort()">sort</md-icon>
+      <md-tooltip md-direction="top">
+        Sort entities in ascending order
+      </md-tooltip>
+    </span>
+
+    <md-divider></md-divider>
+    <div ng-if="$ctrl.loading">
+      <md-progress-circular md-mode="indeterminate">
+      </md-progress-circular>
+    </div>
+
+    <md-list flex
+        class="md-dense"
+        ng-if="$ctrl.entities && !$ctrl.loading">
+      <div ng-repeat="record in $ctrl.entities track by record.id">
+        <md-list-item>
+          <md-checkbox ng-model="record.connected"></md-checkbox>
+          <div>
+            <p>{{ record.entity }}</p>
+            <p>{{ record.event }}</p>
+          </div>
+        </md-list-item>
+        <md-divider></md-divider>
+      </div>
+    </md-list>
+
+    <div ng-if="$ctrl.entities.length < 1 && !$ctrl.loading">
+      No results to show...
+
+      <p ng-if="$ctrl.allowReset">
+        <md-button ng-click="$ctrl.reset()">
+          reset the default state of app
+        </md-button>
+      </p> 
+    </div>
+
+  </div>
+
+  <div class="text-center">
+    <md-button class="btn btn-submit md-raised"
+        ng-click="$ctrl.connect()"
+        ng-disabled="$ctrl.entities.length < 1">
+      Connect
+    </md-button>
+  </div>
+</div>

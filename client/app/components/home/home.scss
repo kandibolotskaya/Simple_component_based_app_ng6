@@ -1,11 +1,7 @@
-
-.app-wrap {
-  /* old way */
+.dropdown-toggle {
+  cursor: pointer;
   display: inline-block;
-  width: 240px;
-  height: auto;
-
-  /* new way */
+  margin-left: 52px;
 }
 
 .btn-rounded {

@@ -1,0 +1,26 @@
+.dialog {
+  margin: 0 20px;
+}
+
+.custom-input {
+  //overwriting material style
+  border: none !important;
+}
+
+md-input-container.md-icon-left {
+  height: 30px;
+}
+
+.sort {
+  cursor: pointer;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-top: 24px;
+  float: right;
+}
+
+.btn-submit  {
+  background-color: lightgreen !important;
+  margin: 10px auto 20px auto;
+}

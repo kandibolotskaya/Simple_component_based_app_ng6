@@ -2,32 +2,10 @@ export default class EntitiesService {
 
   constructor() {
     if (!localStorage.getItem('entities')) {
-      debugger;
       this.$init();
     }
 
     this.entities = JSON.parse(localStorage.getItem('entities'));
-  }
-
-  getAll() {
-    return Promise.resolve(this.entities);
-  }
-
-  getConnected() {
-    return this.getAll()
-      .then(entities => entities.filter(ent => ent.connected));
-  }
-
-  getDisconnected() {
-    return this.getAll()
-      .then(entities => entities.filter(ent => !ent.connected));
-  }
-
-  resetEntities() {
-    // dirty hack for resetting to initial state;
-
-    localStorage.clear();
-    location.reload();
   }
 
   $init() {
@@ -66,4 +44,64 @@ export default class EntitiesService {
 
     localStorage.setItem('entities', JSON.stringify(mock));
   }
+
+  getAll() {
+    return Promise.resolve(this.entities);
+  }
+
+  getConnected() {
+    return this.getAll()
+      .then(entities => entities.filter(ent => ent.connected));
+  }
+
+  getDisconnected() {
+    return this.getAll()
+      .then(entities => entities.filter(ent => !ent.connected));
+  }
+
+  search(query) {
+    return this.getDisconnected()
+      .then(entities => entities.filter(ent => ent.entity.toLowerCase().indexOf(query.toLowerCase()) > -1 ));
+  }
+
+  reset() {
+    localStorage.clear();
+    location.reload();
+  }
+
+  update(entities) {
+    if (!entities) {
+      return Promise.resolve(true)
+    }
+
+    entities.forEach(ent => {
+      if (!ent.connected) {
+        return;
+      }
+
+      const target = this.entities.find(entity => ent.id === entity.id);
+      target.connected = ent.connected;
+    })
+
+    localStorage.setItem('entities', JSON.stringify(this.entities));
+
+    return Promise.resolve(true);
+  }
+
+  sort(type) {
+    const sortFn = (a, b) => {
+      return ('' + a.entity).localeCompare(b.entity)
+    };
+
+    if (type === 'connected') {
+      return this.getConnected()
+        .then(entities => entities.sort(sortFn));
+    }
+
+    if (type === 'disconnected') {
+      return this.getDisconnected()
+        .then(entities => entities.sort(sortFn));
+    }
+  }
+
 }
