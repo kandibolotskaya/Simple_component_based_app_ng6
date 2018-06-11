@@ -5,6 +5,8 @@ class HomeController {
     this.entitiesService = entitiesService;
     this.entities = [];
     this.showList = false;
+    this.showTooltip = false;
+
     this.$init();
   }
 
@@ -17,6 +19,7 @@ class HomeController {
   toggleList(event) {
     event.preventDefault();
     this.showList = !this.showList;
+    this.showTooltip = false;
   }
 }
 

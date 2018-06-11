@@ -43,8 +43,10 @@
     <div ng-if="$ctrl.entities.length < 1 && !$ctrl.loading">
       No results to show...
 
-      <p ng-if="$ctrl.allowReset">
-        <md-button ng-click="$ctrl.reset()">
+      <p ng-if="$ctrl.allowReset"
+          class="text-center">
+        <md-button ng-click="$ctrl.reset()"
+            class="md-raised md-warn">
           reset the default state of app
         </md-button>
       </p> 
@@ -53,7 +55,7 @@
   </div>
 
   <div class="text-center">
-    <md-button class="btn btn-submit md-raised"
+    <md-button class="md-raised md-primary"
         ng-click="$ctrl.connect()"
         ng-disabled="$ctrl.entities.length < 1">
       Connect

@@ -1,6 +1,6 @@
 export default class EntitiesService {
 
-  constructor() {
+  constructor() {    
     if (!localStorage.getItem('entities')) {
       this.$init();
     }
@@ -66,7 +66,7 @@ export default class EntitiesService {
 
   reset() {
     localStorage.clear();
-    location.reload();
+    location.href = '/';
   }
 
   update(entities) {

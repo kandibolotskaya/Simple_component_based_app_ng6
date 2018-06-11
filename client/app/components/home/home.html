@@ -4,6 +4,7 @@
         class="btn-rounded"
         aria-label="Connect Entities">
       <md-icon>add</md-icon>
+      <md-tooltip md-direction="top">Connect more</md-tooltip>
     </a>
     Entities connected ({{ $ctrl.entities.length }})
     <a class="dropdown-toggle" 
@@ -11,6 +12,10 @@
         ng-if="$ctrl.entities.length > 0">
       <md-icon ng-if="!$ctrl.showList">expand_more</md-icon>
       <md-icon ng-if="$ctrl.showList">expand_less</md-icon>
+      <md-tooltip md-direction="top" 
+          md-visible="$ctrl.showTooltip">
+        {{ $ctrl.showList ? 'Hide' : 'Show' }} list
+      </md-tooltip>
     </a>
   </div>
 
