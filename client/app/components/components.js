@@ -1,10 +1,12 @@
 import angular from 'angular';
 import Home from './home/home';
-import About from './about/about';
+import EntitiesList from './entitiesList/entitiesList';
+import entities from './entities/entities';
 
 let componentModule = angular.module('app.components', [
   Home,
-  About
+  EntitiesList,
+  entities
 ])
 
 .name;

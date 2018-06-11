@@ -1,3 +1,27 @@
-.home {
-  color: red;
+
+.app-wrap {
+  /* old way */
+  display: inline-block;
+  width: 240px;
+  height: auto;
+
+  /* new way */
+}
+
+.btn-rounded {
+  /*  old-way */
+  
+  display: inline-block;
+  text-align: center;
+  padding: 4px 0;
+
+  /* new-way */
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background: #d0d0d0;
 }

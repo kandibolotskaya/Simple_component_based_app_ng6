@@ -1,0 +1,12 @@
+<md-input-container>
+  <label>Search entity</label>
+  <input ng-model="$ctrl.query">
+</md-input-container>
+
+<md-list ng-cloak>
+  <md-list-item ng-repeat="topping in [{ name: 1, wanted: false},{ name: 2, wanted: false},{ name: 3, wanted: false},{ name: 4, wanted: true}]">
+    <md-checkbox ng-model="topping.wanted"></md-checkbox>
+    <p> {{ topping.name }} </p>
+  </md-list-item>
+</md-list>
+

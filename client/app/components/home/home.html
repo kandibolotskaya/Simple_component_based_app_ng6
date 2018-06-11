@@ -1,9 +1,16 @@
-<navbar></navbar>
-<header>
-  <hero></hero>
-</header>
-<main>
-  <div>
-    <h1>Found in {{ $ctrl.name }}.html</h1>
+<div class="app-wrap">
+  <div class="row">
+    <a ui-sref="entities" class="btn-rounded" aria-label="Connect Entities">
+      <md-icon>add</md-icon>
+    </a>
+    Entities connected ({{ $ctrl.entities.length }})
+    <a href="" class="dropdown-toggle" ng-click="$ctrl.toggleList($event)">
+      <md-icon ng-if="!$ctrl.showList">expand_more</md-icon>
+      <md-icon ng-if="$ctrl.showList">expand_less</md-icon>
+    </a>
   </div>
-</main>
+
+  <div class="list" ng-show="$ctrl.showList">
+    <entities-list></entities-list>
+  </div>
+</div>

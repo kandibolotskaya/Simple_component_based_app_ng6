@@ -1,19 +1,23 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import ngAria from 'angular-aria';
+import ngAnimate from 'angular-animate';
 import ngMessages from 'angular-messages';
 import ngMaterial from 'angular-material';
 
-import Common from './common/common';
-import Components from './components/compon ents';
+import Components from './components/components';
+import services from './services/services';
 import AppComponent from './app.component';
 import 'normalize.css';
 
 angular.module('app', [
     uiRouter,
+    ngAria,
+    ngAnimate,
     ngMaterial,
     ngMessages,
-    Common,
-    Components
+    Components,
+    services.name
   ])
   .config(($locationProvider) => {
     "ngInject";

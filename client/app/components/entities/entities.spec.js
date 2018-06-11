@@ -1,16 +1,16 @@
-import HeroModule from './hero'
-import HeroController from './hero.controller';
-import HeroComponent from './hero.component';
-import HeroTemplate from './hero.html';
+import EntitiesModule from './entities';
+import EntitiesController from './entities.controller';
+import EntitiesComponent from './entities.component';
+import EntitiesTemplate from './entities.html';
 
-describe('Hero', () => {
+describe('Entities', () => {
   let $rootScope, makeController;
 
-  beforeEach(window.module(HeroModule));
+  beforeEach(window.module(EntitiesModule));
   beforeEach(inject((_$rootScope_) => {
     $rootScope = _$rootScope_;
     makeController = () => {
-      return new HeroController();
+      return new EntitiesController();
     };
   }));
 
@@ -30,20 +30,20 @@ describe('Hero', () => {
     // template specs
     // tip: use regex to ensure correct bindings are used e.g., {{  }}
     it('has name in template [REMOVE]', () => {
-      expect(HeroTemplate).to.match(/{{\s?\$ctrl\.name\s?}}/g);
+      expect(EntitiesTemplate).to.match(/{{\s?\$ctrl\.name\s?}}/g);
     });
   });
 
   describe('Component', () => {
-      // component/directive specs
-      let component = HeroComponent;
+    // component/directive specs
+    let component = EntitiesComponent;
 
-      it('includes the intended template',() => {
-        expect(component.template).to.equal(HeroTemplate);
-      });
+    it('includes the intended template', () => {
+      expect(component.template).to.equal(EntitiesTemplate);
+    });
 
-      it('invokes the right controller', () => {
-        expect(component.controller).to.equal(HeroController);
-      });
+    it('invokes the right controller', () => {
+      expect(component.controller).to.equal(EntitiesController);
+    });
   });
 });

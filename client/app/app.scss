@@ -1,7 +1,17 @@
-@import "common/common";
-
-.app {
-  height: 100%;
-  background-color: $lightBgColor;
+* {
+  box-sizing: border-box;
 }
 
+.main-wrap {
+  /* old way */
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 100vw;
+  height: 100vh;
+
+  /* new way */
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+}
